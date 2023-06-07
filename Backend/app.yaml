@@ -1,0 +1,8 @@
+#app.yaml
+runtime: python37
+
+env_variables:
+  CLOUD_SQL_USERNAME: picos-sqldev
+  CLOUD_SQL_PASSWORD: Picos-23
+  CLOUD_SQL_DATABASE_NAME: YOUR-DB-NAME
+  CLOUD_SQL_CONNECTION_NAME: deep-span-387504:asia-southeast2:picos-sqldev
