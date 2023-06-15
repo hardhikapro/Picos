@@ -23,7 +23,8 @@
         </activity>
         <activity
             android:name=".ui.activity.assessment.MainDashboard"
-            android:exported="false" />
+            android:exported="false" >
+        </activity>
         <activity
             android:name=".ui.activity.RegisterPage"
             android:exported="false" />
@@ -41,6 +42,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
 
         <activity
