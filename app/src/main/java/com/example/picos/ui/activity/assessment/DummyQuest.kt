@@ -8,10 +8,10 @@ object DummyQuest {
         val q1 = DummyQuestions(
             1, "How long have you been married or in a committed relationship?",
             "The duration of marriage or committed relationships can be relevant in understanding potential fertility challenges or hormonal imbalances.\n",
-            "<5 tahun",
-            "5-10 tahun",
-            "11-15 tahun ",
-            ">15 tahun"
+            "<5 years",
+            "5-10 years",
+            "11-15 years ",
+            ">15 years"
         )
 
         questionList.add(q1)

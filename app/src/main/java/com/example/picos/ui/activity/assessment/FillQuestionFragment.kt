@@ -28,22 +28,35 @@ class FillQuestionFragment : Fragment(), View.OnClickListener {
         binding.btnFillNext.setOnClickListener(this)
         (activity as AppCompatActivity).supportActionBar?.hide()
 
-
+        setFillQuestion()
 
         return binding.root
+    }
+
+    private fun setFillQuestion() {
+        var question: FillQuestion = fillQuestList[currentQuest-1]
+        binding.tvFillquestion.text = question.questionFill
+        binding.tvFilldesc.text = question.descFill
     }
 
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.btnFill_next -> {
-                val nextFragment = CategoricalQuestionFragment()
-                val fragmentManager = requireActivity().supportFragmentManager
-                val fragmentTransaction = fragmentManager.beginTransaction()
-                fragmentTransaction.replace(R.id.myNavHostFragment, nextFragment)
-                fragmentTransaction.addToBackStack(null)
-                fragmentTransaction.commit()
+                if(selectedQuest == 0 ) {
+                    currentQuest++
+                    if(currentQuest <= fillQuestList.size) {
+                        setFillQuestion()
+                    } else {
+                    val nextFragment = CategoricalQuestionFragment()
+                    val fragmentManager = requireActivity().supportFragmentManager
+                    val fragmentTransaction = fragmentManager.beginTransaction()
+                    fragmentTransaction.replace(R.id.myNavHostFragment, nextFragment)
+                    fragmentTransaction.addToBackStack(null)
+                    fragmentTransaction.commit()
+                }
+
             }
         }
     }
-}
+}}
 
