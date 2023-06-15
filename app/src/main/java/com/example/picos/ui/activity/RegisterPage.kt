@@ -18,7 +18,7 @@ class RegisterPage : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterPageBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        supportActionBar?.hide()
         auth = FirebaseAuth.getInstance()
 
         binding.buttonCreateAccount.setOnClickListener {

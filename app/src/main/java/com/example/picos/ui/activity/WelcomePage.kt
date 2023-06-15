@@ -16,6 +16,7 @@ class WelcomePage : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityWelcomePageBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.hide()
 
         firebaseAuth = FirebaseAuth.getInstance()
 

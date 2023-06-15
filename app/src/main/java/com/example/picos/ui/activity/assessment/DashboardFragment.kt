@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import com.example.picos.R
@@ -24,7 +25,7 @@ class DashboardFragment : Fragment() {
             view.findNavController().navigate(R.id.action_dashboardFragment_to_fillQuestionFragment)
         }
 
-
+        (activity as AppCompatActivity).supportActionBar?.hide()
         return binding.root
     }
 

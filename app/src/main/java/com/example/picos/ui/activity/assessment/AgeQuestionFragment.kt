@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment.findNavController
 import com.example.picos.R
 import com.example.picos.databinding.FragmentAgeQuestionBinding
 
@@ -35,14 +36,13 @@ class AgeQuestionFragment : Fragment(), View.OnClickListener {
         binding.tvOptTwoAge.setOnClickListener(this)
         binding.tvOptThreeAge.setOnClickListener(this)
 
-        binding.btnAgeNext.setOnClickListener { view: View ->
-            view.findNavController().navigate(R.id.action_ageQuestionFragment_to_questionsFragment)
-        }
+        binding.btnAgeNext.setOnClickListener(this)
 
         setAgeQuestion()
 
         return binding.root
     }
+
 
     private fun setAgeQuestion() {
         var question: AgeQuestion = ageQuestList[currentAgeQuest-1]
@@ -79,6 +79,14 @@ class AgeQuestionFragment : Fragment(), View.OnClickListener {
             }
             R.id.tv_optThreeAge -> {
                 selectedOptColor(binding.tvOptThreeAge, 3)
+            }
+            R.id.btnAgeNext -> {
+                val nextFragment = QuestionsFragment()
+                val fragmentManager = requireActivity().supportFragmentManager
+                val fragmentTransaction = fragmentManager.beginTransaction()
+                fragmentTransaction.replace(R.id.myNavHostFragment, nextFragment)
+                fragmentTransaction.addToBackStack(null)
+                fragmentTransaction.commit()
             }
         }
     }

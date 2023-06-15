@@ -49,6 +49,16 @@ class YNQuestionFragment : Fragment(),View.OnClickListener {
     }
 
     override fun onClick (v: View?) {
+        when (v?.id) {
+            R.id.btnYn_next -> {
+                val nextFragment = AgeQuestionFragment()
+                val fragmentManager = requireActivity().supportFragmentManager
+                val fragmentTransaction = fragmentManager.beginTransaction()
+                fragmentTransaction.replace(R.id.myNavHostFragment, nextFragment)
+                fragmentTransaction.addToBackStack(null)
+                fragmentTransaction.commit()
+            }
+        }
     }
 }
 

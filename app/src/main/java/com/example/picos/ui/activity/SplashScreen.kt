@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import com.example.picos.R
+import com.example.picos.ui.activity.onboarding.OnBoardingScreenActivity
 
 class SplashScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,7 +16,7 @@ class SplashScreen : AppCompatActivity() {
         supportActionBar?.hide()
         val handler = Handler(Looper.getMainLooper())
         handler.postDelayed({
-            val intent = Intent(this, LoginPage::class.java)
+            val intent = Intent(this, OnBoardingScreenActivity::class.java)
             startActivity(intent)
             finish()
         }, 3000)

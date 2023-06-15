@@ -1,11 +1,17 @@
 package com.example.picos.ui.activity.onboarding
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import android.widget.TextView
 import com.example.picos.R
+import com.example.picos.ui.activity.LoginPage
+import com.example.picos.ui.activity.WelcomePage
+import com.example.picos.ui.activity.assessment.MainDashboard
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -35,7 +41,15 @@ class OnBoardThreeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_on_board_three, container, false)
+        val view = inflater.inflate(R.layout.fragment_on_board_three, container, false)
+
+        val ob3Btn = view.findViewById<TextView>(R.id.btn_ob3)
+        ob3Btn.setOnClickListener {
+            val intent = Intent(activity, LoginPage::class.java)
+            startActivity(intent)
+        }
+
+        return view
     }
 
     companion object {

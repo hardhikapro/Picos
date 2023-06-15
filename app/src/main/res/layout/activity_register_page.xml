@@ -76,11 +76,10 @@
             android:layout_height="48dp"
             android:layout_marginTop="100dp"
             android:text="@string/create_account"
-            android:background="@drawable/button_create_account"
             android:backgroundTint="@color/white"
             android:scaleX="0.8"
             android:scaleY="0.8"
-            android:textColor="@color/white"/>
+            android:textColor="@color/black"/>
 
     </LinearLayout>
 

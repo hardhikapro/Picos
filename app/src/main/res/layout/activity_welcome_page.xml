@@ -4,41 +4,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/purple"
+    android:orientation="vertical"
     tools:context=".ui.activity.WelcomePage">
-<FrameLayout
-    android:layout_width="match_parent"
-    android:layout_height="355dp"
-    app:layout_constraintBaseline_toTopOf="parent">
-    <ImageView
-        android:id="@+id/imageView"
+
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/img_welcome_page"
-        app:layout_constraintVertical_bias="0.0" />
+        android:layout_height="355dp"
+        app:layout_constraintBaseline_toTopOf="parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="28dp"
-        android:layout_gravity="bottom"
-        android:fontFamily="@font/poppins_bold"
-        android:text="@string/hello"
-        android:textColor="@color/purple_dark"
-        android:textSize="22sp" />
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_welcome_page"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="28dp"
+            android:layout_gravity="bottom"
+            android:fontFamily="@font/poppins_bold"
+            android:text="@string/hello"
+            android:textColor="@color/purple_dark"
+            android:textSize="22sp" />
 
 
-</FrameLayout>
+    </FrameLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         android:paddingStart="25dp"
         android:paddingEnd="25dp"
-        android:orientation="vertical"
 
->
+        >
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="46dp"
@@ -54,34 +57,34 @@
             android:id="@+id/editTextEmailAddress"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:hint="@string/email_address"
-            android:textColorHint="@color/white"
             android:layout_marginTop="15dp"
             android:autofillHints="email"
+            android:backgroundTint="@color/white"
+            android:hint="@string/email_address"
             android:inputType="textEmailAddress"
 
-            android:backgroundTint="@color/white"/>
+            android:textColorHint="@color/white" />
 
         <EditText
             android:id="@+id/editTextPassword"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginTop="15dp"
-            android:textColorHint="@color/white"
+            android:autofillHints="password"
+            android:backgroundTint="@color/white"
             android:hint="@string/password"
             android:inputType="textPassword"
-            android:autofillHints="password"
-            android:backgroundTint="@color/white"/>
+            android:textColorHint="@color/white" />
 
         <Button
             android:id="@+id/buttonLogin"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginTop="20dp"
-            android:text="@string/login"
-            android:background="@drawable/button_create_account"
+            android:backgroundTint="@color/white"
             android:scaleX="0.8"
             android:scaleY="0.8"
+            android:text="@string/login"
             android:textColor="@color/black" />
 
         <Button
@@ -89,11 +92,11 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginTop="5dp"
-            android:text="@string/create_account"
-            android:background="@drawable/button_create_account"
+            android:backgroundTint="@color/white"
             android:scaleX="0.8"
             android:scaleY="0.8"
-            android:textColor="@color/black"/>
+            android:text="@string/create_account"
+            android:textColor="@color/black" />
 
     </LinearLayout>
 

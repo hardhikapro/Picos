@@ -104,37 +104,23 @@ class QuestionsFragment : Fragment(), View.OnClickListener {
             }
 
             R.id.btn_next ->{
-                //ketika tidak ada opsi yg dipilih
-                if(selectedQuest == 0 ){
+                if (selectedQuest == 0) {
                     currentQuest++
-
-                    when{
-                        currentQuest <= dummyQuestList.size -> {
-
-                            setQuestions()
-
-                        } else -> {
-
-                        //pindah ke fragment result
-
-                        /* INI YANG ERROR
-                        val nextPage =
-                        findNavController().navigate(nextPage)
-                        //binding.btnNext.text = "Finished"
-                        */
-                    }
+                    if (currentQuest <= dummyQuestList.size) {
+                        setQuestions()
+                    } else {
+                        // Navigasi ke ResultFragment
+                        val nextFragment = ResultFragment()
+                        val fragmentManager = requireActivity().supportFragmentManager
+                        val fragmentTransaction = fragmentManager.beginTransaction()
+                        fragmentTransaction.replace(R.id.myNavHostFragment, nextFragment)
+                        fragmentTransaction.addToBackStack(null)
+                        fragmentTransaction.commit()
                     }
                 } else {
-                    if(currentQuest == dummyQuestList.size){
+                    if (currentQuest == dummyQuestList.size) {
                         binding.btnNext.text = "Finished"
-                        val fragment = ResultFragment()
-                        val fragmentManager = requireActivity().supportFragmentManager
-                        val transaction = fragmentManager.beginTransaction()
-                        transaction.replace(R.id.myNavHostFragment, fragment) // Ganti R.id.container dengan ID dari kontainer tempat Anda ingin menampilkan fragment
-                        transaction.addToBackStack(null) // Jika Anda ingin menambahkan fragment ini ke back stack
-                        transaction.commit()
-                    }else {
-
+                    } else {
                         binding.btnNext.text = "NEXT"
                     }
                     selectedQuest = 0

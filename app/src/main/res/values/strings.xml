@@ -32,7 +32,7 @@
     <string name="assessment_dash">Self Assessment</string>
     <string name="assessment_desc">This assessment will help you estimate the current condition of your reproductive health</string>
     <string name="start">Start</string>
-    <string name="disclaimer">Disclaimer:</string>
+    <string name="disclaimer">Disclaimer: This Self Assessment is only an initial diagnosis using machine learning technology and is not 100% accurate, further examination is needed to ensure the correctness of the assessment results</string>
     <string name="well_done">Well Done!</string>
     <string name="sample_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque id pellentesque sem. </string>
     <string name="btnResult">Back to Home</string>
