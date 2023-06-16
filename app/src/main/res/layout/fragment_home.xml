@@ -212,6 +212,7 @@
                     android:background="@drawable/button_create_account"/>
 
                 <LinearLayout
+                    android:id="@+id/btn_myCycle"
                     android:layout_width="329dp"
                     android:layout_height="match_parent"
                     android:orientation="horizontal">

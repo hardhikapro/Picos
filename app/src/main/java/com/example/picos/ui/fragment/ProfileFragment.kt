@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import com.example.picos.R
+import com.example.picos.ui.activity.CommingSoon
 import com.example.picos.ui.activity.LoginPage
 import com.google.firebase.auth.FirebaseAuth
 
@@ -25,7 +26,7 @@ class ProfileFragment : Fragment() {
 
         btnEdit = view.findViewById(R.id.btnEditProfile)
         btnEdit.setOnClickListener {
-            val intent = Intent(requireContext(), EditProfileFragment::class.java)
+            val intent = Intent(requireContext(), CommingSoon::class.java)
             startActivity(intent)
         }
 

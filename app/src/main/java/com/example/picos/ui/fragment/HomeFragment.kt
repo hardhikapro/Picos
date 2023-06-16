@@ -6,9 +6,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.LinearLayout
 import com.example.picos.R
 import com.example.picos.databinding.ActivityMainDashboardBinding
+import com.example.picos.ui.activity.CommingSoon
 import com.example.picos.ui.activity.RegisterPage
 import com.example.picos.ui.activity.assessment.MainDashboard
 
@@ -48,6 +50,22 @@ class HomeFragment : Fragment() {
             val intent = Intent(activity , MainDashboard::class.java)
             startActivity(intent)
         }
+        val calendarbutton = view?.findViewById<ImageButton>(R.id.calendarButton)
+        calendarbutton?.setOnClickListener{
+            val intent = Intent(requireContext() , CommingSoon::class.java)
+            startActivity(intent)
+        }
+        val newLog = view?.findViewById<ImageButton>(R.id.newLogButton)
+        newLog?.setOnClickListener{
+            val intent = Intent(requireContext() , CommingSoon::class.java)
+            startActivity(intent)
+        }
+        val myCycle = view?.findViewById<LinearLayout>(R.id.btn_myCycle)
+        myCycle?.setOnClickListener{
+            val intent = Intent(requireContext() , CommingSoon::class.java)
+            startActivity(intent)
+        }
+
         return view;
     }
 

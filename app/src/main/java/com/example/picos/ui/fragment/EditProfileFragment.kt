@@ -15,6 +15,7 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.Fragment
 import com.example.picos.R
+import com.example.picos.ui.activity.CommingSoon
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
@@ -64,20 +65,22 @@ class EditProfileFragment : Fragment() {
 
     // Method untuk menyimpan perubahan nama dan foto profil
     private fun saveChanges() {
-        val newFirstName = firstNameEditText.text.toString()
-        database.child("users").child("firstName").setValue(newFirstName)
-
-        // Simpan newFirstName ke tempat penyimpanan yang sesuai (misalnya, Firebase Database)
-
-        if (selectedImageUri != null) {
-            // Jika ada gambar yang dipilih dari galeri atau diambil dari kamera
-            val selectedImageBitmap = BitmapFactory.decodeStream(context?.contentResolver?.openInputStream(selectedImageUri!!))
-            // Simpan selectedImageBitmap ke tempat penyimpanan yang sesuai (misalnya, Firebase Storage)
-            val imageUrl = uploadImageToStorage(selectedImageBitmap)
-            database.child("users").child("profileImageUrl").setValue(imageUrl)
-
-
-        }
+//        val newFirstName = firstNameEditText.text.toString()
+//        database.child("users").child("firstName").setValue(newFirstName)
+//
+//        // Simpan newFirstName ke tempat penyimpanan yang sesuai (misalnya, Firebase Database)
+//
+//        if (selectedImageUri != null) {
+//            // Jika ada gambar yang dipilih dari galeri atau diambil dari kamera
+//            val selectedImageBitmap = BitmapFactory.decodeStream(context?.contentResolver?.openInputStream(selectedImageUri!!))
+//            // Simpan selectedImageBitmap ke tempat penyimpanan yang sesuai (misalnya, Firebase Storage)
+//            val imageUrl = uploadImageToStorage(selectedImageBitmap)
+//            database.child("users").child("profileImageUrl").setValue(imageUrl)
+//
+//
+//        }
+        val intent = Intent(requireContext(), CommingSoon::class.java)
+        startActivity(intent)
 
         // Tampilkan pesan sukses atau navigasikan ke halaman lain
     }

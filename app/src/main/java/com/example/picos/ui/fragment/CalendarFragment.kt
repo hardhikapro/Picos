@@ -1,13 +1,16 @@
 package com.example.picos.ui.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.CalendarView
 import android.widget.EditText
 import com.example.picos.R
+import com.example.picos.ui.activity.CommingSoon
 import com.google.firebase.database.*
 
 class CalendarFragment : Fragment() {
@@ -31,6 +34,11 @@ class CalendarFragment : Fragment() {
         }
         databaseReference = FirebaseDatabase.getInstance().getReference("Calendar")
 
+        val btnSave = view.findViewById<Button>(R.id.button)
+        btnSave.setOnClickListener {
+        val intent = Intent(requireContext(), CommingSoon::class.java)
+        startActivity(intent)
+        }
         return view
     }
 
@@ -50,7 +58,5 @@ class CalendarFragment : Fragment() {
         })
     }
 
-    fun buttonSaveEvent(view: View) {
-        databaseReference.child(stringDateSelected).setValue(editText.text.toString())
-    }
+
 }
