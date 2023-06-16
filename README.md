@@ -19,37 +19,14 @@ The PCOS Tracking App is a mobile application designed to empower women with Pol
 - **Notifications and Reminders**: Users can set personalized notifications and reminders for medication schedules, doctor appointments, and self-care routines to ensure they stay on track with their PCOS management.
 
 ## Installation
-
-1. Clone the repository to your local machine.
-   ```
-   
-   ```
-
-2. Install the required dependencies.
-   ```
-   
-   ```
-
-3. Start the development server.
-   ```
-   
-   ```
-
-4. Access the app on your mobile device
+ Download the app on the release tabs
 
 ## Technologies Used
 
 - Firebase: A cloud-based platform used for authentication, data storage, and push notifications.
-- FLask:
+- FLask: a micro web framework written in Python
 - RESTful API: A server-side API for fetching external resources and data.
 - Google Cloud Run
+- Google Cloud Platform
 
 
-
-## License
-
-The PCOS Tracking App is open-source software licensed under the 
-
-## Contact
-
-For any inquiries or support, please contact the 
