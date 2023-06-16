@@ -40,7 +40,7 @@ The PCOS Tracking App is a mobile application designed to empower women with Pol
 ## Technologies Used
 
 - Firebase: A cloud-based platform used for authentication, data storage, and push notifications.
-- SQLite: A local database for storing user data and app information.
+- FLask:
 - RESTful API: A server-side API for fetching external resources and data.
 - Google Cloud Run
 
