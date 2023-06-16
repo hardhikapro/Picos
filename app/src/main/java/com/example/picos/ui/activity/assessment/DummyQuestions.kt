@@ -8,7 +8,8 @@ package com.example.picos.ui.activity.assessment
 data class FillQuestion(
     val idFill: Int,
     val questionFill: String,
-    val descFill: String
+    val descFill: String,
+    val idEditText: Int
 )
 
 

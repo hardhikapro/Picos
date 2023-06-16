@@ -11,8 +11,126 @@
         android:label="fragment_dashboard"
         tools:layout="@layout/fragment_dashboard">
         <action
-            android:id="@+id/action_dashboardFragment_to_fillQuestionFragment"
-            app:destination="@id/fillQuestionFragment" />
+            android:id="@+id/action_dashboardFragment_to_BMIFragment"
+            app:destination="@id/BMIFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/BMIFragment"
+        android:name="com.example.picos.ui.activity.assessment.BMIFragment"
+        android:label="fragment_dashboard"
+        tools:layout="@layout/fragment_b_m_i">
+        <action
+            android:id="@+id/action_BMIFragment_to_WaistHipRatioFragment"
+            app:destination="@id/WaistHipRatioFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/WaistHipRatioFragment"
+        android:name="com.example.picos.ui.activity.assessment.WaistHipRatioFragment"
+        android:label="fragment_dashboard"
+        tools:layout="@layout/fragment_waist_hip_ratio">
+        <action
+            android:id="@+id/action_WaistHipRatioFragment_to_FragmentAbortion"
+            app:destination="@id/AbortionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/AbortionFragment"
+        android:name="com.example.picos.ui.activity.assessment.AbortionFragment"
+        android:label="fragment_abortion"
+        tools:layout="@layout/fragment_abortion">
+        <action
+            android:id="@+id/action_BMIFragment_to_categoricalQuestionFragment"
+            app:destination="@id/categoricalQuestionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoricalQuestionFragment"
+        android:name="com.example.picos.ui.activity.assessment.CategoricalQuestionFragment"
+        android:label="CategoricalQuestionFragment"
+        tools:layout="@layout/fragment_categorical_question">
+        <action
+            android:id="@+id/action_categoricalQuestionFragment_to_menstrualCycleFragment"
+            app:destination="@id/menstrualCycleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/menstrualCycleFragment"
+        android:name="com.example.picos.ui.activity.assessment.MenstrualCycleFragment"
+        android:label="MenstrualCycleFragment"
+        tools:layout="@layout/fragment_menstrual_cycle">
+        <action
+            android:id="@+id/action_menstrualCycleFragment_to_PregnantFragment"
+            app:destination="@id/PregnantFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/PregnantFragment"
+        android:name="com.example.picos.ui.activity.assessment.PregnantFragment"
+        android:label="PregnantFragment"
+        tools:layout="@layout/fragment_pregnant">
+        <action
+            android:id="@+id/action_pregnantFragment_to_WeightGainFragment"
+            app:destination="@id/WeightGainFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/WeightGainFragment"
+        android:name="com.example.picos.ui.activity.assessment.WeightGainFragment"
+        android:label="WeightGainFragment"
+        tools:layout="@layout/fragment_weight_gain">
+        <action
+            android:id="@+id/action_WeightGainFragment_to_HairGrowth"
+            app:destination="@id/HairGrowthFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/HairGrowthFragment"
+        android:name="com.example.picos.ui.activity.assessment.HairGrowthFragment"
+        android:label="HairGrowthFragment"
+        tools:layout="@layout/fragment_hair_growth">
+        <action
+            android:id="@+id/action_HairGrowthFragment_to_SkinDarkeningFragment"
+            app:destination="@id/SkinDarkeningFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/SkinDarkeningFragment"
+        android:name="com.example.picos.ui.activity.assessment.SkinDarkeningFragment"
+        android:label="SkinDarkeningFragment"
+        tools:layout="@layout/fragment_skin_darkening">
+        <action
+            android:id="@+id/action_SkinDarkeningFragment_to_HairLossFragment"
+            app:destination="@id/HairLossFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/HairLossFragment"
+        android:name="com.example.picos.ui.activity.assessment.HairLossFragment"
+        android:label="HairLossFragment"
+        tools:layout="@layout/fragment_hair_loss">
+        <action
+            android:id="@+id/action_HairLossFragment_to_PimplesFragment"
+            app:destination="@id/PimplesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/PimplesFragment"
+        android:name="com.example.picos.ui.activity.assessment.PimplesFragment"
+        android:label="Pimplesfragment"
+        tools:layout="@layout/fragment_pimples">
+        <action
+            android:id="@+id/action_PimplesFragment_to_FastFoodFragment"
+            app:destination="@id/FastFoodFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/FastFoodFragment"
+        android:name="com.example.picos.ui.activity.assessment.FastFoodFragment"
+        android:label="FastFoodFragment"
+        tools:layout="@layout/fragment_fast_food">
+        <action
+            android:id="@+id/action_FastFoodFragment_to_RegularExerciseFragment"
+            app:destination="@id/RegularExerciseFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/RegularExerciseFragment"
+        android:name="com.example.picos.ui.activity.assessment.RegularExerciseFragment"
+        android:label="RegularExerciseFragment"
+        tools:layout="@layout/fragment_regular_exercise">
+        <action
+            android:id="@+id/action_RegularExerciseFragment_to_RegularExerciseFragment"
+            app:destination="@id/ageQuestionFragment" />
     </fragment>
     <fragment
         android:id="@+id/questionsFragment"
@@ -31,33 +149,27 @@
     <fragment
         android:id="@+id/ageQuestionFragment"
         android:name="com.example.picos.ui.activity.assessment.AgeQuestionFragment"
-        android:label="AgeQuestionFragment">
+        android:label="AgeQuestionFragment"
+        tools:layout="@layout/fragment_age_question">
         <action
             android:id="@+id/action_ageQuestionFragment_to_questionsFragment"
             app:destination="@id/questionsFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/YNQuestionFragment"
-        android:name="com.example.picos.ui.activity.assessment.YNQuestionFragment"
-        android:label="YNQuestionFragment">
-        <action
-            android:id="@+id/action_YNQuestionFragment_to_ageQuestionFragment"
-            app:destination="@id/ageQuestionFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/categoricalQuestionFragment"
-        android:name="com.example.picos.ui.activity.assessment.CategoricalQuestionFragment"
-        android:label="CategoricalQuestionFragment">
-        <action
-            android:id="@+id/action_categoricalQuestionFragment_to_YNQuestionFragment"
-            app:destination="@id/YNQuestionFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/fillQuestionFragment"
-        android:name="com.example.picos.ui.activity.assessment.FillQuestionFragment"
-        android:label="FillQuestionFragment">
-        <action
-            android:id="@+id/action_fillQuestionFragment_to_categoricalQuestionFragment"
-            app:destination="@id/categoricalQuestionFragment" />
-    </fragment>
+<!--    <fragment-->
+<!--        android:id="@+id/YNQuestionFragment"-->
+<!--        android:name="com.example.picos.ui.activity.assessment.YNQuestionFragment"-->
+<!--        android:label="YNQuestionFragment">-->
+<!--        <action-->
+<!--            android:id="@+id/action_YNQuestionFragment_to_ageQuestionFragment"-->
+<!--            app:destination="@id/ageQuestionFragment" />-->
+<!--    </fragment>-->
+
+<!--    <fragment-->
+<!--        android:id="@+id/fillQuestionFragment"-->
+<!--        android:name="com.example.picos.ui.activity.assessment.FillQuestionFragment"-->
+<!--        android:label="FillQuestionFragment">-->
+<!--        <action-->
+<!--            android:id="@+id/action_fillQuestionFragment_to_categoricalQuestionFragment"-->
+<!--            app:destination="@id/categoricalQuestionFragment" />-->
+<!--    </fragment>-->
 </navigation>

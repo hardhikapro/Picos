@@ -10,17 +10,21 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.picos.R
 import com.example.picos.databinding.FragmentQuestionBinding
+import com.example.picos.ui.viewModel.SelfAssessmentViewModel
 
 class QuestionsFragment : Fragment(), View.OnClickListener {
     lateinit var binding: FragmentQuestionBinding
 
     lateinit var dummyQuestList: ArrayList<DummyQuestions>
 
-    private var selectedQuest : Int =  0
-    private var currentQuest : Int = 1
+    private var selectedQuest: Int = 0
+    private var currentQuest: Int = 1
+    private lateinit var assessmentViewModel: SelfAssessmentViewModel
+    private lateinit var mariage: String
 
 
     override fun onCreateView(
@@ -38,14 +42,18 @@ class QuestionsFragment : Fragment(), View.OnClickListener {
         binding.tvOptThree.setOnClickListener(this)
         binding.tvOptFour.setOnClickListener(this)
         binding.btnNext.setOnClickListener(this)
+        assessmentViewModel =
+            ViewModelProvider(requireActivity())[SelfAssessmentViewModel::class.java]
 
         setQuestions()
+
+
 
         return binding.root
     }
 
     private fun setQuestions() {
-        var question: DummyQuestions = dummyQuestList[currentQuest-1]
+        var question: DummyQuestions = dummyQuestList[currentQuest - 1]
         binding.tvquestion.text = question.question
         binding.tvMarrydesc.text = question.descMarry
         binding.tvOptOne.text = question.optiOne
@@ -58,7 +66,7 @@ class QuestionsFragment : Fragment(), View.OnClickListener {
 
 
         //implementasi finished button di pertanyaan terakhir
-        if(currentQuest == dummyQuestList.size) {
+        if (currentQuest == dummyQuestList.size) {
             binding.btnNext.text = getString(R.string.button_finished)
         }
     }
@@ -71,13 +79,14 @@ class QuestionsFragment : Fragment(), View.OnClickListener {
         options.add(2, binding.tvOptThree)
         options.add(3, binding.tvOptFour)
 
-        for (option in options){
+        for (option in options) {
 
 
             option.setTextColor(Color.parseColor("#7A8089"))
             //default appearance
             option.typeface = Typeface.DEFAULT
-            option.background = context?.let { ContextCompat.getDrawable(it, R.drawable.default_option_border_bg) }
+            option.background =
+                context?.let { ContextCompat.getDrawable(it, R.drawable.default_option_border_bg) }
 
 
         }
@@ -85,55 +94,50 @@ class QuestionsFragment : Fragment(), View.OnClickListener {
 
     override fun onClick(v: View?) {
 
-        when(v?.id){
+        when (v?.id) {
 
-            R.id.tv_optOne ->{
+            R.id.tv_optOne -> {
                 selectedOptColor(binding.tvOptOne, 1)
+                mariage = "1"
             }
 
-            R.id.tv_optTwo ->{
+            R.id.tv_optTwo -> {
                 selectedOptColor(binding.tvOptTwo, 2)
+                mariage = "2"
             }
 
-            R.id.tv_optThree ->{
+            R.id.tv_optThree -> {
                 selectedOptColor(binding.tvOptThree, 3)
+                mariage = "3"
             }
 
-            R.id.tv_optFour ->{
+            R.id.tv_optFour -> {
                 selectedOptColor(binding.tvOptFour, 4)
+                mariage = "4"
             }
 
-            R.id.btn_next ->{
-                if (selectedQuest == 0) {
-                    currentQuest++
-                    if (currentQuest <= dummyQuestList.size) {
-                        setQuestions()
-                    } else {
-                        // Navigasi ke ResultFragment
-                        val nextFragment = ResultFragment()
-                        val fragmentManager = requireActivity().supportFragmentManager
-                        val fragmentTransaction = fragmentManager.beginTransaction()
-                        fragmentTransaction.replace(R.id.myNavHostFragment, nextFragment)
-                        fragmentTransaction.addToBackStack(null)
-                        fragmentTransaction.commit()
-                    }
-                } else {
-                    if (currentQuest == dummyQuestList.size) {
-                        binding.btnNext.text = "Finished"
-                    } else {
-                        binding.btnNext.text = "NEXT"
-                    }
-                    selectedQuest = 0
-                }
+            R.id.btn_next -> {
 
+                assessmentViewModel.marriageCategory = mariage
+                // Navigasi ke ResultFragment
+                assessmentViewModel.isLoading.observe(viewLifecycleOwner, {
+                    showLoading(it)
+                })
+                assessmentViewModel.predict()
+                val nextFragment = ResultFragment()
+                val fragmentManager = requireActivity().supportFragmentManager
+                val fragmentTransaction = fragmentManager.beginTransaction()
+                fragmentTransaction.replace(R.id.myNavHostFragment, nextFragment)
+                fragmentTransaction.addToBackStack(null)
+                fragmentTransaction.commit()
 
             }
+
 
         }
+
     }
 
-
-    //atur warna option ketika diklik
     private fun selectedOptColor(tv: TextView, selectedQuestion: Int) {
         setAppearance()
 
@@ -142,8 +146,13 @@ class QuestionsFragment : Fragment(), View.OnClickListener {
         tv.setTextColor(Color.parseColor("#FF000000"))
 
         tv.setTypeface(tv.typeface, Typeface.BOLD)
-        tv.background = context?.let { ContextCompat.getDrawable(it, R.drawable.selected_option_border_bg) }
+        tv.background =
+            context?.let { ContextCompat.getDrawable(it, R.drawable.selected_option_border_bg) }
     }
 
-
+    private fun showLoading(state: Boolean) {
+        binding.progressBar.visibility = if (state) View.VISIBLE else View.GONE
+        binding.btnNext.visibility = if (state) View.GONE else View.VISIBLE
+    }
 }
+

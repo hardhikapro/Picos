@@ -133,7 +133,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="35dp"
             android:orientation="vertical"
-            app:layout_constraintBottom_toTopOf="@+id/btnCat_next"
+            app:layout_constraintBottom_toTopOf="@+id/btnCatNext"
             app:layout_constraintEnd_toEndOf="@+id/linearLayout"
             app:layout_constraintTop_toTopOf="@+id/linearLayout">
 
@@ -194,7 +194,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/btnCat_next"
+            android:id="@+id/btnCatNext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"

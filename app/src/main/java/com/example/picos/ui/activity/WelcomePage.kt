@@ -49,5 +49,9 @@ class WelcomePage : AppCompatActivity() {
                     }
                 }
         }
+        binding.buttonCreateAccount.setOnClickListener {
+            val intent = Intent(this, RegisterPage::class.java)
+            startActivity(intent)
+        }
     }
 }

@@ -76,6 +76,33 @@
     <string name="fill_question">What is your body mass index (BMI)?</string>
     <string name="fill_desc">BMI is a measure of body fat based on your height and weight. It helps assess if you have a healthy weight or if you are underweight, overweight, or obese. Calculate your BMI using a reliable online calculator or consult with a healthcare professional.</string>
     <string name="numerical_input">Numerical input</string>
+    <string name="weight">Your Weight</string>
+    <string name="height">Your height</string>
     <string name="button_finished">Finished</string>
+    <item name="waistToHip" type="id" />
+    <item name="abortion" type="id" />
+    <string name="regular">Regular</string>
+    <string name="irregular">Irregular</string>
+    <string name="question_whist">What is your waist-to-hip ratio?</string>
+    <string name="desc_ratio">Waist-to-hip ratio is a measure of body fat distribution and can be an indicator of potential hormonal imbalances. You can calculate the ratio by dividing your waist to your hip size.</string>
+    <string name="quest_abortion">Have you had any abortions in the past?</string>
+    <string name="desc_abortion">The number of abortions can be relevant to assess potential impacts on reproductive health and hormonal balance.</string>
+    <string name="quest_pregnant">Are you currently pregnant or have you been pregnant before?</string>
+    <string name="desc_pregnant">Pregnancy history is crucial as it can impact fertility, hormonal balance, and overall reproductive health. It helps in understanding potential risks or complications associated with pregnancy and related conditions like PCOS.</string>
+    <string name="quest_weightGain">Have you experienced significant weight gain recently?</string>
+    <string name="desc_weightGain">It is important to understand if weight gain is occurring and if it may be related to underlying conditions like PCOS, which can impact overall health and fertility.</string>
+    <string name="quest_hairGrowth">Have you noticed excessive or abnormal hair growth on your body?</string>
+    <string name="desc_hairGrowth">If you sense any abnormal hair growth on your body parts, such as face, arms and legs, or elsewhere, it is considered ecessive or abnormal hair growth, also known as hirsutism, can be a symptom of hormonal imbalances, including PCOS. </string>
+    <string name="quest_skinDarkening">Have you experienced skin darkening or changes in pigmentation?</string>
+    <string name="desc_skinDarkening">Skin darkening or hyper-pigmentation can occur due to hormonal changes and imbalances. It is important to monitor any changes in skin coloration, as it may indicate underlying conditions or imbalances that require medical attention.</string>
+    <string name="quest_hairLoss">Have you experienced significant hair loss or thinning?</string>
+    <string name="desc_hairLoss">Hair loss or thinning can be associated with hormonal imbalances, including those related to PCOS. Understanding changes in hair density and seeking medical guidance can help address potential underlying causes and explore suitable treatments.</string>
+    <string name="quest_pimples">Do you frequently experience pimples or acne breakouts?</string>
+    <string name="desc_pimples">Monitoring the frequency and severity of breakouts helps in identifying potential hormonal issues and determining appropriate skincare or medical interventions.</string>
+    <string name="quest_fastFood">Do you consume fast food frequently?</string>
+    <string name="desc_fastFood">Frequent consumption of fast food can have an impact on overall health, including hormonal balance. It is important to assess dietary habits as they can contribute to weight gain, insulin resistance, and other factors associated with PCOS.</string>
+    <string name="quest_regularExercise">Do you engage in regular exercise?</string>
+    <string name="desc_regularExercise">Regular exercise plays a crucial role in maintaining overall health, managing weight, and promoting hormonal balance. Assessing exercise habits helps in understanding the level of physical activity and its potential impact on reproductive health.</string>
+
     <!-- TODO: Remove or change this placeholder text -->
 </resources>

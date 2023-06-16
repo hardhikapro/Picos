@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/lavender"
-        tools:context=".ui.activity.assessment.FillQuestionFragment">
+        tools:context=".ui.activity.assessment.BMIFragment">
 
         <TextView
             android:id="@+id/tvTitleAD"
@@ -63,14 +63,28 @@
 
 
                 <EditText
-                    android:id="@+id/fill_answer"
+                    android:id="@+id/fill_answer_weight"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginStart="28sp"
                     android:layout_marginEnd="28sp"
                     android:backgroundTint="@color/black"
-                    android:hint="@string/numerical_input"
+                    android:hint="@string/weight"
+                    android:inputType="number"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textSize="12sp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/grey_hint" />
+                <EditText
+                    android:id="@+id/fill_answer_height"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginStart="28sp"
+                    android:layout_marginEnd="28sp"
+                    android:backgroundTint="@color/black"
+                    android:hint="@string/height"
                     android:inputType="number"
                     android:fontFamily="@font/poppins_regular"
                     android:textSize="12sp"
@@ -87,7 +101,7 @@
 
 
         <Button
-            android:id="@+id/btnFill_next"
+            android:id="@+id/btnBmi_next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"

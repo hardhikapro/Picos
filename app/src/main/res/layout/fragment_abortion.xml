@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/lavender"
-        tools:context=".ui.activity.assessment.FillQuestionFragment">
+        tools:context=".ui.activity.assessment.AbortionFragment">
 
         <TextView
             android:id="@+id/tvTitleAD"
@@ -40,30 +40,30 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/tv_fillquestion"
+                    android:id="@+id/tv_abortion_question"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="20dp"
                     android:paddingHorizontal="20dp"
-                    android:text="@string/fill_question"
+                    android:text="@string/quest_abortion"
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     android:fontFamily="@font/poppins_bold"/>
 
                 <TextView
-                    android:id="@+id/tv_filldesc"
+                    android:id="@+id/tv_abortion_desc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingHorizontal="20dp"
                     android:paddingBottom="10dp"
-                    android:text="@string/fill_desc"
+                    android:text="@string/desc_abortion"
                     android:textColor="@color/grey_desc"
                     android:textSize="14sp"
                     android:fontFamily="@font/poppins_regular" />
 
 
                 <EditText
-                    android:id="@+id/fill_answer"
+                    android:id="@+id/abortion_answer"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_marginTop="15dp"
@@ -87,7 +87,7 @@
 
 
         <Button
-            android:id="@+id/btnFill_next"
+            android:id="@+id/btnAbortion_next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"

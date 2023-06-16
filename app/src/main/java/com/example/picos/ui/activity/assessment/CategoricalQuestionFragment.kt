@@ -9,8 +9,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.picos.R
 import com.example.picos.databinding.FragmentCategoricalQuestionBinding
+import com.example.picos.ui.viewModel.SelfAssessmentViewModel
 
 
 class CategoricalQuestionFragment : Fragment(), View.OnClickListener {
@@ -19,8 +22,9 @@ class CategoricalQuestionFragment : Fragment(), View.OnClickListener {
     lateinit var catQuestList: ArrayList<CategoricalQuestion>
 
 
-    private var selectedQuest : Int =  0
-    private var currentQuest : Int = 1
+    private var selectedQuest: Int = 0
+    private var currentQuest: Int = 1
+    private lateinit var assessmentViewModel: SelfAssessmentViewModel
 
 
     override fun onCreateView(
@@ -41,6 +45,9 @@ class CategoricalQuestionFragment : Fragment(), View.OnClickListener {
         binding.tvOptSevenCat.setOnClickListener(this)
         binding.tvOptEightCat.setOnClickListener(this)
         binding.btnCatNext.setOnClickListener(this)
+        assessmentViewModel =
+            ViewModelProvider(requireActivity()).get(SelfAssessmentViewModel::class.java)
+
 
         setCatQuestion()
 
@@ -48,7 +55,7 @@ class CategoricalQuestionFragment : Fragment(), View.OnClickListener {
     }
 
     private fun setCatQuestion() {
-        var question: CategoricalQuestion = catQuestList[currentQuest-1]
+        var question: CategoricalQuestion = catQuestList[currentQuest - 1]
         binding.tvCatquestion.text = question.questionCat
         binding.tvCatdesc.text = question.descCat
         binding.tvOptOneCat.text = question.optiOneCat
@@ -75,13 +82,14 @@ class CategoricalQuestionFragment : Fragment(), View.OnClickListener {
         options.add(6, binding.tvOptSevenCat)
         options.add(7, binding.tvOptEightCat)
 
-        for (option in options){
+        for (option in options) {
 
 
             option.setTextColor(Color.parseColor("#7A8089"))
             //default appearance
             option.typeface = Typeface.DEFAULT
-            option.background = context?.let { ContextCompat.getDrawable(it, R.drawable.default_option_border_bg) }
+            option.background =
+                context?.let { ContextCompat.getDrawable(it, R.drawable.default_option_border_bg) }
 
 
         }
@@ -89,70 +97,85 @@ class CategoricalQuestionFragment : Fragment(), View.OnClickListener {
 
     override fun onClick(v: View?) {
 
-        when(v?.id){
+        when (v?.id) {
 
-            R.id.tv_optOneCat ->{
+            R.id.tv_optOneCat -> {
                 selectedOptColor(binding.tvOptOneCat, 1)
+                assessmentViewModel.bloodGroup = "11"
             }
 
-            R.id.tv_optTwoCat ->{
+            R.id.tv_optTwoCat -> {
                 selectedOptColor(binding.tvOptTwoCat, 2)
+                assessmentViewModel.bloodGroup = "12"
             }
 
-            R.id.tv_optThreeCat ->{
+            R.id.tv_optThreeCat -> {
                 selectedOptColor(binding.tvOptThreeCat, 3)
+                assessmentViewModel.bloodGroup = "13"
             }
 
-            R.id.tv_optFourCat ->{
+            R.id.tv_optFourCat -> {
                 selectedOptColor(binding.tvOptFourCat, 4)
+                assessmentViewModel.bloodGroup = "14"
             }
-            R.id.tv_optFifthCat ->{
+            R.id.tv_optFifthCat -> {
                 selectedOptColor(binding.tvOptFifthCat, 5)
+                assessmentViewModel.bloodGroup = "15"
             }
 
-            R.id.tv_optSixthCat ->{
+            R.id.tv_optSixthCat -> {
                 selectedOptColor(binding.tvOptSixthCat, 6)
+                assessmentViewModel.bloodGroup = "16"
             }
 
-            R.id.tv_optSevenCat ->{
+            R.id.tv_optSevenCat -> {
                 selectedOptColor(binding.tvOptSevenCat, 7)
+                assessmentViewModel.bloodGroup = "17"
             }
 
-            R.id.tv_optEightCat ->{
+            R.id.tv_optEightCat -> {
                 selectedOptColor(binding.tvOptEightCat, 8)
+                assessmentViewModel.bloodGroup = "18"
             }
 
-            R.id.btnCat_next ->{
+            R.id.btnCatNext -> {
                 //ketika tidak ada opsi yg dipilih
-                if(selectedQuest == 0 ){
+                if (selectedQuest == 0) {
                     currentQuest++
 
-                    when{
+                    when {
                         currentQuest <= catQuestList.size -> {
 
                             setCatQuestion()
 
-                        } else -> {
+                        }
+                        else -> {
 
-                        //pindah ke fragment result
+                            val fragment = MenstrualCycleFragment()
+                            val fragmentManager = requireActivity().supportFragmentManager
+                            val transaction = fragmentManager.beginTransaction()
+                            transaction.replace(
+                                R.id.myNavHostFragment,
+                                fragment
+                            ) // Ganti R.id.container dengan ID dari kontainer tempat Anda ingin menampilkan fragment
+                            transaction.addToBackStack(null) // Jika Anda ingin menambahkan fragment ini ke back stack
+                            transaction.commit()
 
-                        /* INI YANG ERROR
-                        val nextPage =
-                        findNavController().navigate(nextPage)
-                        //binding.btnNext.text = "Finished"
-                        */
-                    }
+                        }
                     }
                 } else {
-                    if(currentQuest == catQuestList.size){
+                    if (currentQuest == catQuestList.size) {
                         binding.btnCatNext.text = "NEXT"
-                        val fragment = YNQuestionFragment()
+                        val fragment = MenstrualCycleFragment()
                         val fragmentManager = requireActivity().supportFragmentManager
                         val transaction = fragmentManager.beginTransaction()
-                        transaction.replace(R.id.myNavHostFragment, fragment) // Ganti R.id.container dengan ID dari kontainer tempat Anda ingin menampilkan fragment
+                        transaction.replace(
+                            R.id.myNavHostFragment,
+                            fragment
+                        ) // Ganti R.id.container dengan ID dari kontainer tempat Anda ingin menampilkan fragment
                         transaction.addToBackStack(null) // Jika Anda ingin menambahkan fragment ini ke back stack
                         transaction.commit()
-                    }else {
+                    } else {
 
                         binding.btnCatNext.text = "NEXT"
                     }
@@ -175,7 +198,8 @@ class CategoricalQuestionFragment : Fragment(), View.OnClickListener {
         tv.setTextColor(Color.parseColor("#FF000000"))
 
         tv.setTypeface(tv.typeface, Typeface.BOLD)
-        tv.background = context?.let { ContextCompat.getDrawable(it, R.drawable.selected_option_border_bg) }
+        tv.background =
+            context?.let { ContextCompat.getDrawable(it, R.drawable.selected_option_border_bg) }
     }
 
 

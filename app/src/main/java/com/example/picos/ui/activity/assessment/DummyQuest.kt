@@ -1,5 +1,7 @@
 package com.example.picos.ui.activity.assessment
 
+import com.example.picos.R
+
 object DummyQuest {
     fun getDummyQuestions(): ArrayList<DummyQuestions> {
 
@@ -24,24 +26,21 @@ object FillQuest {
     fun getFillQuestion(): ArrayList<FillQuestion> {
 
         val fillquestionList = ArrayList<FillQuestion>()
+
         val fillq1 = FillQuestion(
-            1, "What is your body mass index (BMI)?\n",
-            "BMI is a measure of body fat based on your height and weight. It helps assess if you have a healthy weight or if you are underweight, overweight, or obese. Calculate your BMI using a reliable online calculator or consult with a healthcare professional.\n",
+            1, "What is your waist-to-hip ratio?\n",
+            "Waist-to-hip ratio is a measure of body fat distribution and can be an indicator of potential hormonal imbalances. You can calculate the ratio by dividing your waist to your hip size.\n",
+            R.id.waistToHip
         )
 
         val fillq2 = FillQuestion(
-            2, "What is your waist-to-hip ratio?\n",
-            "Waist-to-hip ratio is a measure of body fat distribution and can be an indicator of potential hormonal imbalances. You can calculate the ratio by dividing your waist to your hip size.\n",
-        )
-
-        val fillq3 = FillQuestion(
-            3, "Have you had any abortions in the past?",
+            2, "Have you had any abortions in the past?",
             " The number of abortions can be relevant to assess potential impacts on reproductive health and hormonal balance.\n",
+            R.id.abortion
         )
 
         fillquestionList.add(fillq1)
         fillquestionList.add(fillq2)
-        fillquestionList.add(fillq3)
 
         return fillquestionList
     }
@@ -86,10 +85,10 @@ object YnQuest {
         )
 
         val ynq2 = YnQuestion(
-            2, "Are your menstrual cycles regular or irregular?",
-            "Menstrual cycle regularity refers to the consistent timing and duration of your periods. Regular periods usually vary between 23-35 days. Use our tracker feature to track your period cycle",
-            "Regular",
-            "Irregular",
+            2, "Are you currently pregnant or have you been pregnant before?",
+            "Pregnancy history is crucial as it can impact fertility, hormonal balance, and overall reproductive health. It helps in understanding potential risks or complications associated with pregnancy and related conditions like PCOS.",
+            "Yes",
+            "No",
         )
 
         val ynq3 = YnQuestion(

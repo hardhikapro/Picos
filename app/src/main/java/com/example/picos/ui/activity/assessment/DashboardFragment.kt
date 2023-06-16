@@ -22,7 +22,7 @@ class DashboardFragment : Fragment() {
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_dashboard, container, false)
         binding.btnAss.setOnClickListener {view: View ->
-            view.findNavController().navigate(R.id.action_dashboardFragment_to_fillQuestionFragment)
+            view.findNavController().navigate(R.id.action_dashboardFragment_to_BMIFragment)
         }
 
         (activity as AppCompatActivity).supportActionBar?.hide()

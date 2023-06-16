@@ -9,10 +9,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import com.example.picos.R
 import com.example.picos.databinding.FragmentAgeQuestionBinding
+import com.example.picos.ui.viewModel.SelfAssessmentViewModel
 
 class AgeQuestionFragment : Fragment(), View.OnClickListener {
     lateinit var binding: FragmentAgeQuestionBinding
@@ -21,6 +23,8 @@ class AgeQuestionFragment : Fragment(), View.OnClickListener {
 
     private var selectedAgeQuest: Int = 0
     private var currentAgeQuest: Int = 1
+    private lateinit var assessmentViewModel: SelfAssessmentViewModel
+    private lateinit var age : String
 
 
     override fun onCreateView(
@@ -37,6 +41,9 @@ class AgeQuestionFragment : Fragment(), View.OnClickListener {
         binding.tvOptThreeAge.setOnClickListener(this)
 
         binding.btnAgeNext.setOnClickListener(this)
+        assessmentViewModel = ViewModelProvider(requireActivity())[SelfAssessmentViewModel::class.java]
+
+
 
         setAgeQuestion()
 
@@ -73,14 +80,18 @@ class AgeQuestionFragment : Fragment(), View.OnClickListener {
         when(v?.id) {
             R.id.tv_optOneAge -> {
                 selectedOptColor(binding.tvOptOneAge, 1)
+                age = "2"
             }
             R.id.tv_optTwoAge -> {
                 selectedOptColor(binding.tvOptTwoAge, 2)
+                age = "3"
             }
             R.id.tv_optThreeAge -> {
                 selectedOptColor(binding.tvOptThreeAge, 3)
+                age = "4"
             }
             R.id.btnAgeNext -> {
+                assessmentViewModel.ageCategory = age
                 val nextFragment = QuestionsFragment()
                 val fragmentManager = requireActivity().supportFragmentManager
                 val fragmentTransaction = fragmentManager.beginTransaction()
